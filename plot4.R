@@ -12,5 +12,10 @@ coal_emissions <- nei %>%
     group_by(year) %>% 
     summarise(Emissions = sum(Emissions))
 
+outFile = paste0(getwd(), "/plot4.png")
+png(outFile, height=600, width=600)
+
 plot(coal_emissions, pch=20, main="Coal-Related Emissions")
 lines(coal_emissions, lwd=3)
+
+dev.off()

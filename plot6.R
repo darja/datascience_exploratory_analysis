@@ -16,4 +16,10 @@ vehicle_emissions <- nei %>%
     summarise(Emissions = sum(Emissions)) %>%
     full_join(locations, by = c("fips" = "fips"))
 
-qplot(year, Emissions, data=vehicle_emissions, facets = .~name, geom = c("point", "line"))
+outFile = paste0(getwd(), "/plot6.png")
+png(outFile, height=600, width=600)
+
+qplot(year, Emissions, data=vehicle_emissions, facets = .~name, geom = c("point", "line"), 
+      main = "Emissions From Motor Vehicle Sources")
+
+dev.off()

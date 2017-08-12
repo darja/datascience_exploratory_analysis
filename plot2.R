@@ -8,5 +8,10 @@ total <- nei %>%
     group_by(year) %>% 
     summarise(Emissions = sum(Emissions))
 
+outFile = paste0(getwd(), "/plot2.png")
+png(outFile, height=600, width=600)
+
 plot(total, pch=20, main="Total Emissions in Baltimore City, Maryland")
 lines(total, lwd=3)
+
+dev.off()

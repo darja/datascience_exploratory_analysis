@@ -12,5 +12,10 @@ baltimore_vehicle_emissions <- nei %>%
     group_by(year) %>% 
     summarise(Emissions = sum(Emissions))
 
+outFile = paste0(getwd(), "/plot5.png")
+png(outFile, height=600, width=600)
+
 plot(baltimore_vehicle_emissions, pch=20, main="Emissions From Motor Vehicle Sources in Baltimore City")
 lines(baltimore_vehicle_emissions, lwd=3)
+
+dev.off()
